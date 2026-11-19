@@ -8,14 +8,38 @@
   <title>Voluntaz Digital — Undangan Digital untuk Momen Spesial</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="icon" type="image/png" href="V.png">
-  <!-- Jika menggunakan format .ico -->
-  <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loader.css">
   <script src="script.js" defer></script>
+  <script src="loader.js" defer></script>
 </head>
 <body>
+
+  <!-- VOLUNTAZ DIGITAL INTRO LOADER -->
+  <div class="vd-loader" id="vd-loader" role="status" aria-label="Memuat Voluntaz Digital">
+    <div class="vd-loader__grain" aria-hidden="true"></div>
+    <div class="vd-loader__center">
+      <div class="vd-loader__orbit vd-loader__orbit--outer" aria-hidden="true">
+        <span class="vd-loader__orbit-dot"></span>
+      </div>
+      <div class="vd-loader__orbit vd-loader__orbit--inner" aria-hidden="true">
+        <span class="vd-loader__orbit-dot"></span>
+      </div>
+      <div class="vd-loader__monogram">v<span>.</span></div>
+      <div class="vd-loader__wordmark">voluntaz <span>digital</span></div>
+      <div class="vd-loader__rule"><span></span></div>
+      <p class="vd-loader__caption">A LITTLE MOMENT, BEAUTIFULLY MADE</p>
+      <div class="vd-loader__loading"><span id="vd-loader-percent">00</span><i>/ 100</i></div>
+    </div>
+    <div class="vd-loader__bottom">
+      <span>CREATING YOUR EXPERIENCE</span>
+      <span>EST. WITH CARE <b>✳</b></span>
+    </div>
+  </div>
+  <!-- END INTRO LOADER -->
+
   <header class="header">
     <nav class="nav container" aria-label="Navigasi utama">
       <a class="brand" href="#home" aria-label="Voluntaz Digital beranda">
@@ -36,41 +60,77 @@
   </header>
 
   <main>
-    <section class="hero container" id="home">
-      <div class="hero-copy reveal">
-        <div class="eyebrow"><span></span> UNDANGAN DIGITAL, DENGAN SENTUHAN PERSONAL</div>
-        <h1>Setiap momen<br>punya <em>ceritanya.</em></h1>
-        <p>Rayakan momen berharga dengan undangan digital yang dirancang khusus untuk ceritamu. Elegan, praktis, dan mudah dibagikan kepada orang tersayang.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#koleksi">Temukan Desain <span>↗</span></a>
-          <a class="button button-plain" href="#cara-pesan">Cara pemesanan <span>↓</span></a>
+    <!-- HERO SECTION: DIAGONAL SPLIT SHOWCASE -->
+    <section class="hero-showcase" id="home" data-accent="#8c6d53">
+      <!-- Blok warna diagonal di sisi kanan (mengadopsi gaya referensi) -->
+      <div class="hero-diagonal-bg" id="hero-diagonal-bg" aria-hidden="true"></div>
+      <!-- Tipografi watermark besar di latar belakang -->
+      <div class="hero-watermark" id="hero-watermark" aria-hidden="true">WEDDING</div>
+
+      <div class="container hero-showcase-grid">
+        <!-- Kolom Kiri: Copywriting & Identitas Slide -->
+        <div class="hero-copy reveal">
+          <div class="eyebrow" id="hero-eyebrow"><span></span> UNDANGAN DIGITAL, DENGAN SENTUHAN PERSONAL</div>
+          <h1 id="hero-title">Setiap momen<br>punya <em>ceritanya.</em></h1>
+          <p id="hero-desc">Rayakan momen berharga dengan undangan digital yang dirancang khusus untuk ceritamu. Elegan, praktis, dan mudah dibagikan kepada orang tersayang.</p>
+          
+          <div class="hero-actions">
+            <a class="button button-primary" id="hero-cta-primary" href="#koleksi">Temukan Desain <span>↗</span></a>
+            <a class="button button-plain" href="#cara-pesan">Cara pemesanan <span>↓</span></a>
+          </div>
+
+          <div class="hero-controls-bar">
+            <div class="hero-proof">
+              <span class="proof-icon">✳</span>
+              <span id="hero-caption">Untuk hari istimewa, dari hati ke hati.</span>
+            </div>
+            <!-- Navigasi panah ala referensi -->
+            <div class="slide-arrows" aria-label="Navigasi showcase">
+              <button type="button" class="arrow-btn" id="hero-prev" aria-label="Desain sebelumnya">←</button>
+              <button type="button" class="arrow-btn" id="hero-next" aria-label="Desain berikutnya">→</button>
+            </div>
+          </div>
         </div>
-        <div class="hero-proof"><span class="proof-icon">✳</span><span>Untuk hari istimewa, dari hati ke hati.</span></div>
+
+        <!-- Kolom Kanan: Kartu Visual & Floating Notes -->
+        <div class="hero-art reveal" aria-label="Contoh desain undangan digital">
+          <div class="hero-circle circle-one"></div>
+          <div class="hero-circle circle-two"></div>
+
+          <div class="invitation-card invitation-back">
+            <img src="W1.jpg" alt="Wedding1" class="invitation-photo" id="hero-img-back" />
+          </div>
+
+          <div class="invitation-card invitation-front">
+            <img src="W2.jpg" alt="Wedding2" class="invitation-photo" id="hero-img-front" />
+            <a href="https://wedding-of-wira-dan-sueni.vercel.app/?to=Tamu Undangan" target="_blank" rel="noopener" class="card-live-badge" id="hero-live-link">
+              Buka Live Preview ↗
+            </a>
+          </div>
+
+          <div class="art-note note-one" id="hero-note-one">A special day, beautifully told</div>
+          <div class="art-note note-two" id="hero-note-two">✦ Made just for you</div>
+
+          <span class="hero-spark spark-a">✳</span>
+          <span class="hero-spark spark-b">✧</span>
+        </div>
       </div>
-      <div class="hero-art reveal" aria-label="Contoh desain undangan digital">
-        <div class="hero-circle circle-one"></div>
-        <div class="hero-circle circle-two"></div>
-        
-        <div class="invitation-card invitation-back">
-          <img src="W1.jpg" alt="Wedding1" class="invitation-photo" />
-        </div>
 
-        <div class="invitation-card invitation-front">
-          <img src="W2.jpg" alt="Wedding2" class="invitation-photo" />
-        </div>
-
-        <div class="art-note note-one">A special day, beautifully told</div>
-        <div class="art-note note-two">✦ Made just for you</div>
-
-        <span class="hero-spark spark-a">✳</span>
-        <span class="hero-spark spark-b">✧</span>
+      <!-- Indikator Slide Vertikal di Sisi Kanan (ala referensi) -->
+      <div class="hero-vertical-dots" id="hero-dots" role="tablist" aria-label="Pilih sorotan desain">
+        <button type="button" class="v-dot active" data-slide="0" aria-label="Sorotan 1: Wira & Sueni"></button>
+        <button type="button" class="v-dot" data-slide="1" aria-label="Sorotan 2: Wira & Ayu"></button>
+        <button type="button" class="v-dot" data-slide="2" aria-label="Sorotan 3: Bayu & Yanti"></button>
+        <button type="button" class="v-dot" data-slide="3" aria-label="Sorotan 4: Custom Netflix"></button>
       </div>
-      <div class="hero-bottom">
+
+      <div class="container hero-bottom">
         <span>DESIGNED FOR YOUR MOMENTS</span>
-        <span>WEDDING · FAMILY CELEBRATION</span>
+        <span id="hero-slide-counter">01 / 04 — WEDDING · FAMILY CELEBRATION</span>
       </div>
     </section>
 
+    <!-- CATEGORY SECTION -->
     <section class="category-section section" id="kategori">
       <div class="container">
         <div class="section-heading reveal">
@@ -129,6 +189,7 @@
       </div>
     </section>
 
+    <!-- FEATURED COLLECTION SECTION -->
     <section class="featured-section section" id="koleksi">
       <div class="container">
         <div class="section-heading reveal">
@@ -138,6 +199,7 @@
           </div>
           <p>Jelajahi contoh desain undangan. Pilih preview untuk melihat konsep atau buka undangan untuk mengunjungi halaman lengkapnya.</p>
         </div>
+
         <div class="filter-row reveal" role="group" aria-label="Filter kategori desain">
           <button class="filter-button active" data-filter="Semua" aria-pressed="true">Semua desain</button>
           <button class="filter-button" data-filter="Custom" aria-pressed="false">Custom</button>
@@ -148,9 +210,10 @@
 
         <div class="collection-grid" id="collection-grid">
           <!-- Item 1: Wira & Sueni -->
-          <article class="design-card reveal" data-type="Wedding">
+          <article class="design-card reveal" data-type="Wedding" data-accent="#8c6d53">
             <a class="design-image-link" href="https://wedding-of-wira-dan-sueni.vercel.app/?to=Tamu Undangan" target="_blank" rel="noopener" aria-label="Buka undangan Wira dan Sueni">
               <div class="design-preview">
+                <div class="preview-diagonal-strip"></div>
                 <img src="W2.jpg" alt="Preview undangan pernikahan Wira dan Sueni" class="design-preview-image" />
                 <span class="preview-tag">WEDDING · W01</span>
                 <span class="image-open-label">Buka undangan ↗</span>
@@ -161,16 +224,24 @@
                 <h3>Wira &amp; Sueni</h3>
                 <p>Glasses · Elegant</p>
               </div>
-              <a class="design-link open-invitation" href="https://wedding-of-wira-dan-sueni.vercel.app/?to=Tamu Undangan" target="_blank" rel="noopener">
-                Buka undangan ↗
-              </a>
+              <div class="design-card-actions">
+                <button type="button" class="preview-trigger" 
+                  data-title="Wira &amp; Sueni" 
+                  data-category="WEDDING · W01" 
+                  data-style="Glasses · Elegant"
+                  data-url="https://wedding-of-wira-dan-sueni.vercel.app/?to=Tamu Undangan">Preview</button>
+                <a class="design-link open-invitation" href="https://wedding-of-wira-dan-sueni.vercel.app/?to=Tamu Undangan" target="_blank" rel="noopener">
+                  Buka ↗
+                </a>
+              </div>
             </div>
           </article>
 
           <!-- Item 2: Wira & Ayu -->
-          <article class="design-card reveal" data-type="Wedding">
+          <article class="design-card reveal" data-type="Wedding" data-accent="#5b6e74">
             <a class="design-image-link" href="https://undangan-wira-ayu.vercel.app/?to=Tamu+Undangan" target="_blank" rel="noopener" aria-label="Buka undangan Wira dan Ayu">
               <div class="design-preview">
+                <div class="preview-diagonal-strip"></div>
                 <img src="W1.jpg" alt="Preview undangan pernikahan Wira dan Ayu" class="design-preview-image" />
                 <span class="preview-tag">WEDDING · W02</span>
                 <span class="image-open-label">Buka undangan ↗</span>
@@ -181,18 +252,26 @@
                 <h3>Wira &amp; Ayu</h3>
                 <p>Future · Elegant</p>
               </div>
-              <a class="design-link open-invitation" href="https://undangan-wira-ayu.vercel.app/?to=Tamu+Undangan" target="_blank" rel="noopener">
-                Buka undangan ↗
-              </a>
+              <div class="design-card-actions">
+                <button type="button" class="preview-trigger" 
+                  data-title="Wira &amp; Ayu" 
+                  data-category="WEDDING · W02" 
+                  data-style="Future · Elegant"
+                  data-url="https://undangan-wira-ayu.vercel.app/?to=Tamu+Undangan">Preview</button>
+                <a class="design-link open-invitation" href="https://undangan-wira-ayu.vercel.app/?to=Tamu+Undangan" target="_blank" rel="noopener">
+                  Buka ↗
+                </a>
+              </div>
             </div>
           </article>
 
-          <!-- Item 2: Wira & Ayu -->
-          <article class="design-card reveal" data-type="Wedding">
-            <a class="design-image-link" href="https://undangan-wira-ayu.vercel.app/?to=Tamu+Undangan" target="_blank" rel="noopener" aria-label="Buka undangan Wira dan Ayu">
+          <!-- Item 3: Bayu & Yanti -->
+          <article class="design-card reveal" data-type="Wedding" data-accent="#4f6d5a">
+            <a class="design-image-link" href="https://thewedding-bayu-yanti.vercel.app/" target="_blank" rel="noopener" aria-label="Buka undangan Bayu dan Yanti">
               <div class="design-preview">
-                <img src="BYY.png" alt="Preview undangan pernikahan Wira dan Ayu" class="design-preview-image" />
-                <span class="preview-tag">WEDDING · W02</span>
+                <div class="preview-diagonal-strip"></div>
+                <img src="BYY.png" alt="Preview undangan pernikahan Bayu dan Yanti" class="design-preview-image" />
+                <span class="preview-tag">WEDDING · W03</span>
                 <span class="image-open-label">Buka undangan ↗</span>
               </div>
             </a>
@@ -201,16 +280,24 @@
                 <h3>Bayu &amp; Yanti</h3>
                 <p>Nature · Elegant</p>
               </div>
-              <a class="design-link open-invitation" href="https://thewedding-bayu-yanti.vercel.app/" target="_blank" rel="noopener">
-                Buka undangan ↗
-              </a>
+              <div class="design-card-actions">
+                <button type="button" class="preview-trigger" 
+                  data-title="Bayu &amp; Yanti" 
+                  data-category="WEDDING · W03" 
+                  data-style="Nature · Elegant"
+                  data-url="https://thewedding-bayu-yanti.vercel.app/">Preview</button>
+                <a class="design-link open-invitation" href="https://thewedding-bayu-yanti.vercel.app/" target="_blank" rel="noopener">
+                  Buka ↗
+                </a>
+              </div>
             </div>
           </article>
 
-          <!-- Item 3: Custom Demo -->
-          <article class="design-card reveal" data-type="Custom">
+          <!-- Item 4: Custom Demo (Netflix) -->
+          <article class="design-card reveal" data-type="Custom" data-accent="#8b2626">
             <a class="design-image-link" href="https://yuda-regitha.vercel.app/?to=" target="_blank" rel="noopener" aria-label="Buka undangan Custom Netflix">
               <div class="design-preview">
+                <div class="preview-diagonal-strip"></div>
                 <img src="YRR.png" alt="Preview undangan Custom" class="design-preview-image" />
                 <span class="preview-tag">CUSTOM · C01</span>
                 <span class="image-open-label">Buka undangan ↗</span>
@@ -221,9 +308,16 @@
                 <h3>Netflix</h3>
                 <p>Happy · Powerfull</p>
               </div>
-              <a class="design-link open-invitation" href="https://yuda-regitha.vercel.app/?to=" target="_blank" rel="noopener">
-                Buka undangan ↗
-              </a>
+              <div class="design-card-actions">
+                <button type="button" class="preview-trigger" 
+                  data-title="Netflix Edition" 
+                  data-category="CUSTOM · C01" 
+                  data-style="Happy · Powerfull"
+                  data-url="https://yuda-regitha.vercel.app/?to=">Preview</button>
+                <a class="design-link open-invitation" href="https://yuda-regitha.vercel.app/?to=" target="_blank" rel="noopener">
+                  Buka ↗
+                </a>
+              </div>
             </div>
           </article>
         </div>
@@ -232,6 +326,7 @@
       </div>
     </section>
 
+    <!-- BENEFITS SECTION -->
     <section class="benefits-section section">
       <div class="container benefits-layout">
         <div class="benefits-copy reveal">
@@ -249,6 +344,7 @@
       </div>
     </section>
 
+    <!-- STEPS SECTION -->
     <section class="steps-section section" id="cara-pesan">
       <div class="container">
         <div class="section-heading reveal">
@@ -267,6 +363,7 @@
       </div>
     </section>
 
+    <!-- FAQ SECTION -->
     <section class="faq-section section" id="faq">
       <div class="container faq-layout">
         <div class="faq-intro reveal">
@@ -285,6 +382,7 @@
       </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section class="contact-section section container" id="kontak">
       <div class="contact-panel reveal">
         <div class="contact-copy">
