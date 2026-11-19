@@ -206,3 +206,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open(`https://wa.me/6282146068093?text=${text}`, '_blank', 'noopener');
   });
 });
+// Otomatis memilih paket di form konsultasi saat tombol paket diklik
+  const eventSelect = document.getElementById('event');
+  document.querySelectorAll('[data-select-package]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const pkg = btn.getAttribute('data-select-package');
+      if (eventSelect && pkg) {
+        eventSelect.value = pkg;
+      }
+    });
+  });
