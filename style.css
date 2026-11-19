@@ -948,3 +948,137 @@ img {
     display: flex;
   }
 }
+/* HARGA PADA KARTU KOLEKSI */
+.price-pill {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.price-pill--promo {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.price-pill del {
+  font-weight: 400;
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
+.design-info p del {
+  color: var(--ink-muted);
+  margin-right: 4px;
+}
+
+/* PRICING SECTION */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 26px;
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: transform 0.35s var(--ease-editorial), box-shadow 0.35s var(--ease-editorial);
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.pricing-card--featured {
+  background: var(--bg-soft);
+  border-color: var(--accent);
+}
+
+.pricing-badge {
+  align-self: flex-start;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.pricing-badge--accent {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.pricing-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.pricing-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.pricing-amount strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.pricing-strike {
+  font-size: 1rem;
+  color: var(--ink-muted);
+}
+
+.pricing-amount span {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.pricing-desc {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  margin-bottom: 20px;
+}
+
+.pricing-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.88rem;
+  margin-bottom: 26px;
+  margin-top: auto;
+}
+
+.pricing-cta {
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
