@@ -1,0 +1,183 @@
+/* =========================================================
+   VOLUNTAZ DIGITAL — CINEMATIC INTRO LOADER
+   Append-safe: standalone styles, namespaced with .vd-loader
+   ========================================================= */
+.vd-loader {
+  --loader-gold: #967638;
+  --loader-ink: #1e1d1b;
+  --loader-paper: #f7f4ed;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(255,255,255,.94) 0%, rgba(247,244,237,.98) 42%, #eee9df 100%);
+  color: var(--loader-ink);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .85s cubic-bezier(.7,0,.2,1), visibility .85s;
+  isolation: isolate;
+}
+.vd-loader::before,
+.vd-loader::after {
+  content: "";
+  position: absolute;
+  width: min(78vw, 760px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(150,118,56,.13);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.vd-loader::before { transform: scale(.72); animation: vd-pulse 3.2s ease-in-out infinite; }
+.vd-loader::after { transform: scale(1.02); border-style: dashed; animation: vd-spin 36s linear infinite; }
+.vd-loader__grain {
+  position: absolute;
+  inset: 0;
+  opacity: .14;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+.vd-loader__center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: vd-rise 1s cubic-bezier(.2,.75,.2,1) both;
+}
+.vd-loader__orbit {
+  position: absolute;
+  left: 50%;
+  top: 54px;
+  border: 1px solid rgba(150,118,56,.32);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.vd-loader__orbit--outer {
+  width: 174px;
+  height: 174px;
+  margin: -87px 0 0 -87px;
+  animation: vd-spin 8s linear infinite;
+}
+.vd-loader__orbit--inner {
+  width: 138px;
+  height: 138px;
+  margin: -69px 0 0 -69px;
+  border-color: rgba(150,118,56,.2);
+  animation: vd-spin-reverse 6s linear infinite;
+}
+.vd-loader__orbit-dot {
+  position: absolute;
+  top: 14px;
+  left: 21px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--loader-gold);
+  box-shadow: 0 0 16px rgba(150,118,56,.55);
+}
+.vd-loader__orbit--inner .vd-loader__orbit-dot {
+  top: auto;
+  bottom: 8px;
+  left: 26px;
+  width: 5px;
+  height: 5px;
+  background: #c9ad75;
+}
+.vd-loader__monogram {
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
+  border: 1px solid rgba(150,118,56,.48);
+  border-radius: 50%;
+  background: rgba(255,255,255,.56);
+  box-shadow: 0 18px 55px rgba(71,57,31,.09), inset 0 0 25px rgba(150,118,56,.06);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 66px;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--loader-ink);
+}
+.vd-loader__monogram span { color: var(--loader-gold); }
+.vd-loader__wordmark {
+  margin-top: 35px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(25px, 4vw, 34px);
+  letter-spacing: .025em;
+}
+.vd-loader__wordmark span {
+  color: var(--loader-gold);
+  font-style: italic;
+}
+.vd-loader__rule {
+  width: 150px;
+  height: 1px;
+  margin: 19px 0 13px;
+  overflow: hidden;
+  background: rgba(150,118,56,.2);
+}
+.vd-loader__rule span {
+  display: block;
+  width: 42%;
+  height: 100%;
+  background: var(--loader-gold);
+  animation: vd-progress 2.1s cubic-bezier(.65,0,.35,1) infinite;
+}
+.vd-loader__caption {
+  margin: 0;
+  font: 600 9px/1.5 "DM Sans", sans-serif;
+  letter-spacing: .23em;
+  color: #82765f;
+}
+.vd-loader__loading {
+  margin-top: 27px;
+  font: 500 11px/1 "DM Sans", sans-serif;
+  letter-spacing: .12em;
+  color: var(--loader-gold);
+}
+.vd-loader__loading i {
+  margin-left: 4px;
+  font-style: normal;
+  color: #aaa08e;
+  font-size: 9px;
+}
+.vd-loader__bottom {
+  position: absolute;
+  z-index: 1;
+  right: clamp(20px, 5vw, 64px);
+  bottom: 28px;
+  left: clamp(20px, 5vw, 64px);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font: 600 8px/1.4 "DM Sans", sans-serif;
+  letter-spacing: .18em;
+  color: #9b907d;
+}
+.vd-loader__bottom b { color: var(--loader-gold); font-size: 12px; }
+.vd-loader.is-leaving { opacity: 0; visibility: hidden; pointer-events: none; }
+body.vd-loading { overflow: hidden; }
+@keyframes vd-spin { to { transform: rotate(360deg); } }
+@keyframes vd-spin-reverse { to { transform: rotate(-360deg); } }
+@keyframes vd-pulse { 0%,100% { opacity: .45; transform: scale(.72); } 50% { opacity: .95; transform: scale(.78); } }
+@keyframes vd-rise { from { opacity: 0; transform: translateY(18px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes vd-progress { 0% { transform: translateX(-110%); } 100% { transform: translateX(250%); } }
+
+@media (max-width: 600px) {
+  .vd-loader__bottom { bottom: 18px; font-size: 7px; letter-spacing: .12em; }
+  .vd-loader__orbit--outer { width: 154px; height: 154px; margin: -77px 0 0 -77px; }
+  .vd-loader__orbit--inner { width: 126px; height: 126px; margin: -63px 0 0 -63px; }
+  .vd-loader__monogram { width: 96px; height: 96px; font-size: 58px; }
+  .vd-loader__orbit { top: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vd-loader *, .vd-loader::before, .vd-loader::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .vd-loader { transition-duration: .2s; }
+}
